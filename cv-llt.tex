@@ -1,0 +1,100 @@
+\documentclass[a4paper,skipsamekey,11pt,english]{curve}
+
+
+
+% Default biblatex style used for the publication list is APA6. If you wish to use a different style or pass other options to biblatex you can change them here. 
+
+%\PassOptionsToPackage{style=ieee,sorting=ydnt,uniquename=init,defernumbers=true}{biblatex}
+
+% Most commands and style definitions are in settings.sty.
+\usepackage{settings}
+\usepackage{multicol}
+
+% If you need to further customise your biblatex setup e.g. with \DeclareFieldFormat etc please add them here AFTER loading settings.sty. For example, to remove the default "[Online] Available:" prefix before URLs when using the IEEE style:
+\DefineBibliographyStrings{english}{url={\textsc{url}}}
+
+%% Only needed if you want a Publication List
+\addbibresource{own-bib.bib}
+
+%% Specify your last name(s) and first name(s) (as given in the .bib) to automatically bold your own name in the publications list. 
+%% One caveat: You need to write \bibnamedelima where there's a space in your name for this to work properly; or write \bibnamedelimi if you use initials in the .bib
+% \mynames{Lim/Lian\bibnamedelima Tze}
+
+%% You can specify multiple names like this, especially if you have changed your name or if you need to highlight multiple authors. See items 6–9 in the example "Journal Articles" output.
+%5\mynames{Yarik\bibnamedelima Menchaca\bibnamedelima Resendiz,
+%Menchaca\bibnamedelima Resendiz\bibnamedelima Yarik}
+%% MAKE SURE THERE IS NO SPACE AFTER THE FINAL NAME IN YOUR \mynames LIST
+
+% Change the fonts if you want
+% Change the fonts to Roboto for a clean and professional CV
+\ifxetexorluatex % If you're using XeLaTeX or LuaLaTeX
+  \usepackage{fontspec} 
+  \setmainfont{Helvetica} % Set main font to Helvetica
+  \setsansfont{Helvetica} % Set sans-serif font to Helvetica
+\else % If you're using pdfLaTeX or LaTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[scaled=0.9]{helvet} % Helvetica for pdfLaTeX users
+  \renewcommand{\familydefault}{\sfdefault} % Use sans-serif as default
+\fi
+
+% Change the page margins if you want
+\geometry{left=1cm,right=1cm,top=1cm,bottom=1cm}
+
+% Change the colours if you want
+% Section Line color
+\definecolor{SwishLineColour}{HTML}{000000}
+% Icons color
+\definecolor{MarkerColour}{HTML}{0000CC}
+
+% Change the item prefix marker if you want
+% \prefixmarker{$\diamond$}
+\prefixmarker{$-$}
+
+%% Photo is only shown if "fullonly" is included%
+% \includecomment{fullonly}
+ \excludecomment{fullonly}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\leftheader{%
+\begin{center}
+  {\LARGE\bfseries\sffamily Yarik Menchaca Resendiz}
+  
+   Stuttgart, Germany
+
+  \makefield{\faEnvelope[regular]}{\href{mailto:YarikMenchacaR@gmail.com}{\texttt{YarikMenchacaR@gmail.com}}}
+  \makefield{\faPhone}{\texttt{+49 151 47565395‬}} \\
+  \makefield{\faLinkedin}
+  {\href{https://www.linkedin.com/in/yarik-menchaca-resendiz-ba2466115/}{\texttt{LinkedIn}}}
+  \makefield{\faGithub}{\href{https://github.com/YarikMR}{\texttt{Github}}}
+  %% Next line
+  \makefield{\faGlobe}{\href{https://yarikmr.github.io/YarikMR/}{\texttt{Website}}}
+  \end{center}
+  }
+
+\rightheader{~}
+\begin{fullonly}
+\photo[r]{Foto_cv}
+\photoscale{0.2}
+\end{fullonly}
+%
+\title{Curriculum Vitae}
+%
+\begin{document}
+\makeheaders[c]
+\makerubric{profile}
+\makerubric{skills}
+\makerubric{employment}
+\makerubric{education}
+%% Sometimes when a section can't be nicely modelled with the \entry[]... mechanism; hack our own and use \input NOT \makerubric
+\input{publications}
+\input{courses_certificates}
+\makerubric{languages}
+\makerubric{misc}
+
+%\makerubric{referee}
+% \input{referee-full}
+
+\end{document}

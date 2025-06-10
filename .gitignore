@@ -1,6 +1,11 @@
 # Texpad
 .texpadtmp/*
 
+# Other files
+.DS_Store
+CV_Yarik.pdf
+core_cv.pdf
+
 #other files
 employment.pdf
 education.pdf
